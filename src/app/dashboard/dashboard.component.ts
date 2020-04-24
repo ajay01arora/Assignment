@@ -14,8 +14,14 @@ export class DashboardComponent implements OnInit {
 
   casesdata : any;
 
-  ngOnInit(): void {
-    this.casesdata =  this.cases_data.getStateDetails();
+async ngOnInit() {
+  this.cases_data.getStateDetails().subscribe((data) =>{
+    this.casesdata = JSON.stringify(data);
+    console.log("api data======",data);
+    }
+    );
+
+  
   }
 
   

@@ -8,14 +8,14 @@ const httpOptions =  {
 
 @Injectable()
 export class CasesDataService {
-
-
+  
   private apiUrl  = "https://api.covid19india.org/state_district_wise.json";
-
+  
   constructor(private http : HttpClient) { }
-
-  getStateDetails() : Observable<Object>{
-   return this.http.get<any>(this.apiUrl);
+  
+   getStateDetails() : Observable<Object>{
+    console.log("inside the service");
+   return  this.http.get<any>(this.apiUrl);
    
   }
 
