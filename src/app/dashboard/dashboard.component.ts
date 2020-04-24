@@ -36,11 +36,16 @@ ngOnInit() {
            
               this.districtList.push(obj);
           }
-          console.log(state);
-          console.log(data[state].statecode);
-          console.log(this.districtList);
-          this.StateList.push(new State(state, data[state].statecode, this.districtList));
+          //  console.log("check",state);
+          //  console.log(data[state].statecode);
+          // console.log(this.districtList);
+         // let data1=new State(state, data[state].statecode, this.districtList)
+          // console.log("data===",data1)
+          this.StateList.push({stateName:state,stateCode: data[state].statecode,districtList: this.districtList});
+            //{stateName:state,stateCode: data[state].statecode,districtList: this.districtList});
       }
+
+      console.log("stateList====",this.StateList)
     });
   }
 
