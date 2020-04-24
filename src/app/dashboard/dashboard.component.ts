@@ -16,14 +16,17 @@ export class DashboardComponent implements OnInit {
   StateList : Array<State>;
 
   districtList : Array<District>;
+  distList: any=[];
 
 ngOnInit() {
   this.cases_data.getStateDetails().subscribe((data) =>{ 
     
-    
+    console.log("data======",data)
     this.StateList = new Array<State>();
       for(var state in data)
       {
+
+        //  console.log("state===",state);
         this.districtList = new Array<District>();
           for (var district in data[state].districtData)
           {
@@ -33,22 +36,47 @@ ngOnInit() {
               data[state].districtData[district].active, 
               data[state].districtData[district].recovered
               ,data[state].districtData[district].deceased);
+              // console.log("obj====",obj)
            
               this.districtList.push(obj);
           }
+
+
+
+
+
           //  console.log("check",state);
           //  console.log(data[state].statecode);
           // console.log(this.districtList);
-         // let data1=new State(state, data[state].statecode, this.districtList)
-          // console.log("data===",data1)
-          this.StateList.push({stateName:state,stateCode: data[state].statecode,districtList: this.districtList});
+
+
+
+     
+
+         
+          this.StateList.push( new State(state, data[state].statecode, this.districtList))
+
+
+          // // let data1:State= {
+          // //   stateName:state,
+          // //   stateCode: data[state].statecode,
+          // //   districtList: this.districtList
+          // // }
+          // this.StateList.push(
+          //  data1
+          //   );
             //{stateName:state,stateCode: data[state].statecode,districtList: this.districtList});
       }
 
-      console.log("stateList====",this.StateList)
+     // console.log("stateList====",this.StateList)
     });
   }
 
-  
+  getDistrictData(data){
+    console.log("click===",{data})
+    this.distList=data;
+    console.log("click===",this.distList)
+
+  }
 
 }

@@ -17,7 +17,11 @@ export interface IDistrict
 
 export class State implements IState
 {
-    constructor (stateName : string, stateCode:string, districtList: IDistrict[]) {}
+    constructor (stateName : string, stateCode:string, districtList: IDistrict[]) {
+        this.stateName=stateName;
+        this.stateCode=stateCode;
+        this.districtList=districtList;
+    }
     stateName: string;
     stateCode: string;
     districtList: IDistrict[];
@@ -26,10 +30,15 @@ export class State implements IState
 
 export class District implements IDistrict
 {
-    constructor(districtName: string,  totalCases: number,active: number,recovered: number, deceased: number){}
-        districtName: string;
-        totalCases: number;
-        active: number;
-        recovered: number;
-        deceased: number;
-}
+    constructor(districtName: string,  totalCases: number,active: number,recovered: number, deceased: number){
+        this.districtName=districtName;
+        this.totalCases=totalCases;
+        this.recovered=recovered;
+        this.deceased=deceased
+    }
+    districtName: string;
+    totalCases: number;
+    active: number;
+    recovered: number;
+    deceased: number;
+    }
