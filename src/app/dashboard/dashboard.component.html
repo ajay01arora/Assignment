@@ -1,12 +1,20 @@
-<div class="">
+<div class="container">
+    <div class="row">
+        <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>State Name</th>
+                <th>State Code</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let state of StateList">
+                    <td>{{ state.stateName}}</td>
+                    <td>{{ state.stateCode}}</td>
+                </tr>
 
-    <h1>
-        
-        District Data
-    </h1>
-   <p>
-
-       {{casesdata}}
-   </p> 
+            </tbody>
+          </table>
+    </div>
 </div>
 
