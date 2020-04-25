@@ -2,17 +2,20 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">Angular Assignment</a>
+      <a class="navbar-brand" href="#" routerLinkActive="active">Angular Assignment</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="/active"><a routerLink="/dashboard">Dashboard</a></li>
+      <li class="/active"><a routerLink="/dashboard" routerLinkActive="active">Dashboard</a></li>
       <li>
         <a routerLink="/news">Latest News</a>
       </li>
-      <li><a routerLink="/precaution">Precaution</a></li>
+      <li><a routerLink="/precaution" routerLinkActive="active">Precaution</a></li>
+
+      <li><a routerLink="/add-news" routerLinkActive="active">Add News</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a routerLink="/"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      <li><a routerLink="/login" routerLinkActive="active"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      <!-- <li><a routerLink="/login" routerLinkActive="active"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li> -->
     </ul>
   </div>
 </nav>

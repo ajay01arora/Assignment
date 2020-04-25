@@ -1,0 +1,21 @@
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th>District Name</th>
+        <th>Total Cases</th>
+        <th>Active</th>
+        <th>Recovered</th>
+        <th>Deceased</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let district of state.districtList">
+            <td>{{ district.districtName}}</td>
+            <td>{{ district.totalCases}}</td>
+            <td>{{ district.active}}</td>
+            <td>{{ district.recovered}}</td>
+            <td>{{ district.deceased}}</td>
+        </tr>
+
+    </tbody>
+</table>

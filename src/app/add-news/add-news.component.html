@@ -1,0 +1,67 @@
+<div class="container">    
+        <h3>Add News</h3>      
+      <form [formGroup]="newsForm" (ngSubmit)="save(newsForm.value)">    
+          <div class="row">
+            <label class="col-md-6" for="txtName">News Title</label>
+            <input class="form-control col-md-6" id="txtName" type="text" placeholder="Enter news title" 
+            formControlName="newsTitle" [ngClass]="{'is-invalid' : (newsForm.controls.newsTitle.touched || newsForm.controls.newsTitle.dirty) && !newsForm.controls.newsTitle.valid}" />
+            <span class="invalid-feedback col-md-6">
+              <span *ngIf="newsForm.controls.newsTitle.errors?.required">
+                Please enter news title.
+              </span>
+              <span *ngIf="newsForm.controls.newsTitle.errors?.minlength">
+                News title must be more than 10 character.
+              </span>
+            </span>
+          </div>
+          <div class="row">
+            <label class="col-md-3" for="txtName">summary</label>
+            <input class="form-control col-md-3" id="txtName" type="text" placeholder="Enter summary" 
+            formControlName="summary" [ngClass]="{'is-invalid' : (newsForm.controls.summary.touched || newsForm.controls.summary.dirty) && !newsForm.controls.summary.valid}" />
+            <span class="invalid-feedback col-md-6">
+              <span *ngIf="newsForm.controls.summary.errors?.required">
+                Please enter summary.
+              </span>
+              <span *ngIf="newsForm.controls.summary.errors?.minlength">
+                summary must be more than 10 character.
+              </span>
+            </span>
+          </div>
+          <div class="row">
+            <label class="col-md-3" for="txtName">Description</label>
+            <input class="form-control col-md-3" id="txtName" type="text" placeholder="Enter description" 
+            formControlName="description" [ngClass]="{'is-invalid' : (newsForm.controls.description.touched || newsForm.controls.description.dirty) && !newsForm.controls.description.valid}" />
+            <span class="invalid-feedback col-md-6">
+              <span *ngIf="newsForm.controls.description.errors?.required">
+                Please enter description.
+              </span>
+              <span *ngIf="newsForm.controls.description.errors?.minlength">
+                Description must be more than 10 character.
+              </span>
+            </span>
+          </div>
+          <div class="row">
+            <label class="col-md-3" for="txtName">Full full_news</label>
+            <textarea class="form-control col-md-3" id="txtName" type="text" placeholder="Enter full full_news" 
+            formControlName="full_news" [ngClass]="{'is-invalid' : (newsForm.controls.full_news.touched || newsForm.controls.full_news.dirty)}" ></textarea>
+            <span class="invalid-feedback col-md-6">
+              <span *ngIf="newsForm.controls.full_news.errors?.required">
+                Please enter full full_news.
+              </span>
+              <span *ngIf="newsForm.controls.full_news.errors?.minlength">
+                News title must be more than 1000 character.
+              </span>
+            </span>
+          </div>
+          <div class="row">
+            <button type="submit">Save</button>
+          </div>
+      </form>   
+</div>   
+
+<br>
+touched : {{newsForm.touched }}
+<br>
+dirty : {{newsForm.dirty}}
+<br>
+value : {{newsForm.value | json}}

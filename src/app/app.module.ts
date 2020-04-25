@@ -4,19 +4,31 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule , RoutingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { DistrictListComponent } from './district-list/district-list.component';
+import { LoginComponent } from './login/login.component';
+import { AuthGuard} from './guards/auth.guard';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { DataInMemoryService } from './data-in-memory.service';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    RoutingComponents
+    RoutingComponents,
+    DistrictListComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(DataInMemoryService, {dataEncapsulation:false}),
+    FormsModule,    
+    ReactiveFormsModule   
   ],
-  providers: [],
+  
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
