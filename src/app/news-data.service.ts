@@ -50,12 +50,19 @@ export class NewsDataService {
     
        console.log("previous_news====",oldNews)
      
+     let id=0;
      
-       // return this.http.put<any>(this.apiUrl, News, httpOptions).pipe(
-      //   catchError(this.handleError)
-      // );
-      oldNews.push(News)
+     await  oldNews.push(News)
+
+      oldNews.map(
+        (news)=>{
+          console.log("previous_news====",news)
+          if(news)
+        news.id=id++
+      });
   
+
+      console.log("previous_news====",oldNews)
       
       const data=await this.http.put(this.jsonStorageBase ,oldNews,httpOptions).toPromise()
       console.log({data})

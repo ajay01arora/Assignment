@@ -14,6 +14,7 @@ export class AuthService
 
   private currentUserSubject: BehaviorSubject<any>;
   public currentUser: Observable<any>;
+  public npointBaseUrl:string="https://www.npoint.io/documents/680bba8d293902089d18";
 
   private apiUrl  = "https://api.covid19india.org/state_district_wise.json";
   
@@ -28,16 +29,34 @@ export class AuthService
 }
 
 
-login(username, password) {
-  let user={username,password};
-  return this.http.get<any>(`${this.apiUrl}`)
-      .pipe(map(user => {
-        //  store user details and jwt token in local storage to keep user logged in between page refreshes
-          localStorage.setItem('currentUser', JSON.stringify(user));
-          this.currentUserSubject.next(user);
-          return user;
+async login(userData) {
+  
+  let user=userData,loginSuccess=false;
+  const adminUser=await this.http.get<any>(`${this.npointBaseUrl}`).toPromise();
+
+  // console.log("adminUser.contents",adminUser.contents,user)
+
+  adminUser.contents.map((data)=>{
+    console.log("adminUser.contents",data)
+    if(data.userId==user.userid){
+      if(data.password==user.password){
+        loginSuccess=true;                // you can use lodash to compare id password, i chose this one easier but not ideal
+      }
+    }
+  })
+
+
+ if(loginSuccess){
+    localStorage.setItem('currentUser', JSON.stringify(user));
+    this.currentUserSubject.next(user);
+  }
+
+     return loginSuccess;
     
-           }));
+  // }));
+
+
+  return 
 }
 
   logout() : void

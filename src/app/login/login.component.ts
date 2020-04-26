@@ -51,53 +51,27 @@ ngOnInit()
 
 get f() { return this.loginForm.controls; }  
 
-login() {  
+async login() {  
   
   // stop here if form is invalid  
   if (this.loginForm.invalid) {  
      return;  
   }  
-  // else {  
-  //   localStorage.setItem('loggedIn',"true");
-  //   this.router.navigate([this.returnUrl]);  
-
-  // }
-
-
+ 
 
   this.loading = true;
-  this.authService.login("admin", "admin@123")
-        .pipe(first())
-      .subscribe(
-          data => {
-            console.log("data====",data)
-              this.router.navigate(['/dashboard']);
-          },
-          error => {
-            console.log("error====",error)
-              this.error = error;
-              this.loading = false;
-          });
+ const loginData=await this.authService.login(this.loginForm.value);
+     
+
+if(loginData){
+            console.log("data====",loginData)
+               this.router.navigate(['/dashboard']);
+} else {  
+      this.message = "Please check your userid and password";  
+      }  
+          
 
 
-
-
-
-
-
-
-
-    //  if (this.f.userid.value == this.model.userid && this.f.password.value == this.model.password) {  
-    //     console.log("Login successful");  
-    //     //this.authService.authLogin(this.model);  
-    //     localStorage.setItem('isLoggedIn', "true");  
-    //     localStorage.setItem('token', this.f.userid.value);  
-    //     this.router.navigate([this.returnUrl]);  
-    //  }  
-  // else {  
-  //    this.message = "Please check your userid and password";  
-  //    }  
-    // }  
   }  
 
 }
