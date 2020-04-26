@@ -1,20 +1,58 @@
-
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#" routerLinkActive="active">Angular Assignment</a>
+      <a class="navbar-brand" href="#" routerLinkActive="active"
+        >Angular Assignment</a
+      >
     </div>
     <ul class="nav navbar-nav">
-      <li class="/active"><a routerLink="/dashboard" routerLinkActive="active">Dashboard</a></li>
+      <li class="/active">
+        <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+      </li>
       <li>
         <a routerLink="/news">Latest News</a>
       </li>
-      <li><a routerLink="/precaution" routerLinkActive="active">Precaution</a></li>
+      <li>
+        <a routerLink="/precaution" routerLinkActive="active">Precaution</a>
+      </li>
 
-      <li><a routerLink="/add-news" routerLinkActive="active">Add News</a></li>
+      <li><a *ngIf="currentUser" routerLink="/add-news" routerLinkActive="active">Add News</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a routerLink="/login" routerLinkActive="active"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      <li (click)="show=!show">
+
+
+
+          <div *ngIf="currentUser; else notShow">
+
+        <!-- <a routerLink="/login" routerLinkActive="active"> -->
+        <span (click)="logout()" class="glyphicon glyphicon-log-in hand"> 
+
+          Logout
+        </span>
+      <!-- </a > -->
+             
+            </div>
+            
+            <ng-template #notShow>
+             
+                <a routerLink="/login" routerLinkActive="active">
+                <span class="glyphicon glyphicon-log-in hand"> 
+        
+                  login
+                </span>
+              </a >
+
+            </ng-template>
+
+
+
+
+
+
+
+      </li>
+
       <!-- <li><a routerLink="/login" routerLinkActive="active"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li> -->
     </ul>
   </div>
