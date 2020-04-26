@@ -13,7 +13,7 @@ export class DashboardComponent implements OnInit {
 
   constructor(private cases_data : CasesDataService) { }
 
-  StateList : Array<State>;
+  StateList : Array<State>=[];
   
   selectState : State;
 
@@ -25,6 +25,7 @@ export class DashboardComponent implements OnInit {
 
 ngOnInit() {
   this.cases_data.getStateDetails().subscribe((data) =>{ 
+     console.log("data===",data)
         
     let districtList = new Array<District>();
       for(var state in data)

@@ -23,7 +23,7 @@ import { DataInMemoryService } from './data-in-memory.service';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(DataInMemoryService, {dataEncapsulation:false}),
+    // HttpClientInMemoryWebApiModule.forRoot(DataInMemoryService, {dataEncapsulation:false}),
     FormsModule,    
     ReactiveFormsModule   
   ],
