@@ -2,21 +2,21 @@ export interface INews
 {
     newsTitle : string;
     description : string;
-    summary : string;
+    image_link : string;
     full_news : string;
 }
 
 export class News implements INews{
 
-    constructor (newsTitle: string, description : string, summary : string, full_news)
+    constructor (newsTitle: string, description : string, image_link : string, full_news)
     {
         this.newsTitle = newsTitle,
         this.description = description,
-        this.summary = summary,
+        this.image_link = image_link,
         this.full_news = full_news 
     }
     newsTitle: string;
     description: string;
-    summary: string;
+    image_link: string;
     full_news: string;
 }

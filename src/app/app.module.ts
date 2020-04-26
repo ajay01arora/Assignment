@@ -10,6 +10,8 @@ import { AuthGuard} from './guards/auth.guard';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { DataInMemoryService } from './data-in-memory.service';
+import { Router } from '@angular/router';
+import { NewsViewComponent } from './news-view/news-view.component';
 
 
 @NgModule({
@@ -17,7 +19,8 @@ import { DataInMemoryService } from './data-in-memory.service';
     AppComponent,
     RoutingComponents,
     DistrictListComponent,
-    LoginComponent,
+    LoginComponent
+  
   ],
   imports: [
     BrowserModule,
@@ -25,7 +28,7 @@ import { DataInMemoryService } from './data-in-memory.service';
     HttpClientModule,
     // HttpClientInMemoryWebApiModule.forRoot(DataInMemoryService, {dataEncapsulation:false}),
     FormsModule,    
-    ReactiveFormsModule   
+    ReactiveFormsModule
   ],
   
   providers: [AuthGuard],

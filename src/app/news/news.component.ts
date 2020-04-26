@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NewsDataService } from '../news-data.service';
 import { INews } from '../add-news/news';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-news',
@@ -10,7 +11,7 @@ import { INews } from '../add-news/news';
 })
 export class NewsComponent implements OnInit {
 
-  constructor(private newsData : NewsDataService) { }
+  constructor(private newsData : NewsDataService, private router :Router) { }
 
   News : INews[];
 
@@ -20,6 +21,12 @@ export class NewsComponent implements OnInit {
     {
       this.News = data;
     });
+  }
+
+  ViewNews(id: number)
+  {
+    let routeUrl = "view-news/"+id;
+    this.router.navigate([routeUrl]);
   }
 
 }

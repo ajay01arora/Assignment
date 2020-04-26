@@ -26,7 +26,7 @@ export class AddNewsComponent implements OnInit {
     this.newsForm = this.fb.group({
       newsTitle : ["", [Validators.required, Validators.minLength(10)]],
       description : ["", [Validators.required, Validators.minLength(10)]],
-      summary : ["", [Validators.required, Validators.minLength(10)]],
+      image_link : ["", [Validators.required, Validators.minLength(10)]],
       full_news : ["", [Validators.required, Validators.minLength(10)]]
     });
 

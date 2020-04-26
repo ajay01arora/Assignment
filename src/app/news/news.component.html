@@ -1,20 +1,16 @@
 <div class="container">
     <div class="row">
-        <div class="col-md-6">
-        <table class="table table-bordered">
-            <thead>
-              <tr>
-                <th>State Name</th>
-                <th>State Code</th>
-              </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let news of News">
-                    <td>{{ news.newsTitle}}</td>
-                </tr>                             
-            </tbody>
-          </table>
-          </div>
-    </div>
+        <div class="col-md-12">
+          <h2>Top Headlines <hr></h2>
+        </div>
+        <div class="col-md-12">
+          <ul>
+            <div class="jumbotron"><a (click)="ViewNews(1)">Forget Hindu-Muslim, donate plasma, save lives from coronavirus: Arvind Kejriwal</a></div>
+            <div class="jumbotron"><a (click)="ViewNews(1)">Forget Hindu-Muslim, donate plasma, save lives from coronavirus: Arvind Kejriwal</a></div>
+            <div class="jumbotron"><a (click)="ViewNews(1)">Forget Hindu-Muslim, donate plasma, save lives from coronavirus: Arvind Kejriwal</a></div>
+            <div class="jumbotron"><a (click)="ViewNews(1)">Forget Hindu-Muslim, donate plasma, save lives from coronavirus: Arvind Kejriwal</a></div>
+          </ul>
+        </div>
+  </div>
 </div>
 

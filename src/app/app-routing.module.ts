@@ -5,6 +5,7 @@ import { NewsComponent } from './news/news.component';
 import { PrecautionComponent } from './precaution/precaution.component';
 import { LoginComponent } from './login/login.component';
 import { AddNewsComponent } from './add-news/add-news.component';
+import { NewsViewComponent } from './news-view/news-view.component';
 
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
 {path: 'precaution', component: PrecautionComponent},
 {path: 'login', component: LoginComponent},
 {path: 'add-news', component: AddNewsComponent},
+{path: 'view-news/:id', component: NewsViewComponent},
 
 ];
 
@@ -24,5 +26,5 @@ const routes: Routes = [
 
 export class AppRoutingModule { }
 
-export const RoutingComponents = [DashboardComponent, NewsComponent, PrecautionComponent, AddNewsComponent];
+export const RoutingComponents = [DashboardComponent, NewsComponent, PrecautionComponent, AddNewsComponent, NewsViewComponent];
 

@@ -12,13 +12,13 @@ export class DataInMemoryService implements InMemoryDbService {
     {
       newsTitle : 'Hello',
       description: "Data",
-      summary : "summary",
+      image_link : "image_link",
       full_news : "full_news"
     },
     {
       newsTitle : 'newsTitle 2',
       description: "Description 2",
-      summary : "summary 2",
+      image_link : "image_link 2",
       full_news : "full_news 2"
     },
 

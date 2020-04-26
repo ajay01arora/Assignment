@@ -9,23 +9,13 @@
         type="text"
         placeholder="Enter news title"
         formControlName="newsTitle"
-        [ngClass]="{ 'is-invalid': submitted && f.newsTitle.errors }"
+        [ngClass]="{ 'is-invalid': submitted && f.newsTitle.errors }" 
         />
-          <!-- [ngClass]="{
-            'is-invalid':
-              (newsForm.controls.newsTitle.touched ||
-                newsForm.controls.newsTitle.dirty) &&
-              !newsForm.controls.newsTitle.valid
-          }" -->
 
-
-
-     <div class="invalid-feedback col-md-6">
+       <div class="invalid-feedback col-md-6">
         <span 
         *ngIf="(f.newsTitle.touched || submitted) && f.newsTitle.errors?.required"
-        class="alert-danger"
-        >
-        
+        class="alert-danger">
           Please enter news title.
         </span>
         <span
@@ -41,27 +31,27 @@
 
 
     <div class="row">
-      <label class="col-md-3" for="txtName">summary</label>
+      <label class="col-md-3" for="txtName">image_link</label>
       <input
         class="form-control col-md-3"
         id="txtName"
         type="text"
-        placeholder="Enter summary"
-        formControlName="summary"
-        [ngClass]="{ 'is-invalid': submitted && f.summary.errors }"
+        placeholder="Enter image_link"
+        formControlName="image_link"
+        [ngClass]="{ 'is-invalid': submitted && f.image_link.errors }"
        
       />
       <div class="invalid-feedback col-md-6">
 
         <span
         class="alert-danger"
-         *ngIf="(f.summary.touched || submitted) && f.summary.errors?.required">
-          Please enter summary.
+         *ngIf="(f.image_link.touched || submitted) && f.image_link.errors?.required">
+          Please enter image_link.
         </span>
         <span
         class="alert-danger"
-        *ngIf="(f.summary.touched || submitted) && f.summary.errors?.minlength">
-          summary must be more than 10 character.
+        *ngIf="(f.image_link.touched || submitted) && f.image_link.errors?.minlength">
+          image_link must be more than 10 character.
         </span>
 
       </div>
@@ -69,10 +59,8 @@
     </div>
 
 
-
-
     <div class="row">
-      <label class="col-md-3" for="txtName">Description</label>
+      <label class="col-md-3" for="txtName">Image Link</label>
       <input
         class="form-control col-md-3"
         id="txtName"
