@@ -13,14 +13,15 @@ export class NewsComponent implements OnInit {
 
   constructor(private newsData : NewsDataService, private router :Router) { }
 
-  News : INews[];
+  News : any=[];
 
 
-  ngOnInit(): void {
-    this.newsData.getNews().subscribe( data =>     
-    {
+ async ngOnInit() {
+  const data=await  this.newsData.getNews();   
+    
+      console.log("news=======",data)
       this.News = data;
-    });
+   
   }
 
   ViewNews(id: number)

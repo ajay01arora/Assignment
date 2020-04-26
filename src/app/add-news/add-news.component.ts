@@ -37,7 +37,7 @@ export class AddNewsComponent implements OnInit {
   }
 
 
-  save() 
+async  save() 
   {
     this.submitted=true;
     // console.log("news=====",News)
@@ -46,8 +46,19 @@ export class AddNewsComponent implements OnInit {
   }
 
     if (this.newsForm.valid) {
-      alert('Form Submitted succesfully!!!\n Check the values in browser console.');
+      //alert('Form Submitted succesfully!!!\n Check the values in browser console.');
+      console.log(this.newsForm.value);
       console.table(this.newsForm.value);
+
+   const data=await   this.newsdata.addNews(this.newsForm.value)
+     if(data){
+       setTimeout(() => {
+         
+         this.router.navigate(['/news'])
+       }, 1500);
+     }
+
+      console.log("add_news=====data====",data)
     }
     //this.newsdata.addNews(News).subscribe();
     // this.router.navigate(['/news']);
