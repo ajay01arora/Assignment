@@ -12,5 +12,28 @@
           </ul>
         </div>
   </div>
-</div>
+  <div class="row">
+        <div class="col-md-6">
+        <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>News Title</th>
+                <th>Description</th>
+                <th>Full News</th>
+                <th>Image Link</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let news of News">
+                    <td>{{ news.newsTitle}}</td>
+                    <td>{{ news.description}}</td>
+                    <td>{{ news.full_news}}</td>
+                    <td>{{ news.image_link}}</td>
+                </tr>                             
+            </tbody>
+          </table>
+          </div>
+        </div>
+    </div>
+  <!-- </div> -->
 
