@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { NewsDataService } from '../news-data.service';
-import { INews } from '../add-news/news';
+import { NewsDataService } from '../services/news-data.service';
 import { Router } from '@angular/router';
+import { INews } from '../interfaces/INews';
 
 @Component({
   selector: 'app-news',
@@ -13,15 +13,13 @@ export class NewsComponent implements OnInit {
 
   constructor(private newsData : NewsDataService, private router :Router) { }
 
-  News : any=[];
+  NewsList : INews[]=[];
 
 
  async ngOnInit() {
+
   const data=await  this.newsData.getNews();   
-    
-      console.log("news=======",data)
-      this.News = data;
-   
+   this.NewsList = data;   
   }
 
   ViewNews(id: number)

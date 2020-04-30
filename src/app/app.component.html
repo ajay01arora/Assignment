@@ -20,29 +20,15 @@
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li (click)="show=!show">
-
-
-
           <div *ngIf="currentUser; else notShow">
-
-        <!-- <a routerLink="/login" routerLinkActive="active"> -->
-        <span (click)="logout()" class="glyphicon glyphicon-log-in hand"> 
-
-          Logout
-        </span>
-      <!-- </a > -->
-             
-            </div>
-            
-            <ng-template #notShow>
-             
+                <span (click)="logout()" class="glyphicon glyphicon-log-out hand logout"> Logout </span>
+            </div>            
+            <ng-template #notShow>             
                 <a routerLink="/login" routerLinkActive="active">
-                <span class="glyphicon glyphicon-log-in hand"> 
-        
-                  login
+                <span class="glyphicon glyphicon-log-in hand">         
+                  Login
                 </span>
               </a >
-
             </ng-template>
 
 
@@ -51,9 +37,7 @@
 
 
 
-      </li>
-
-      <!-- <li><a routerLink="/login" routerLinkActive="active"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li> -->
+      </li>     
     </ul>
   </div>
 </nav>

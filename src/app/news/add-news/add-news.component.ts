@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormBuilder, Validators,ValidatorFn, AbstractControl } from '@angular/forms';
-import { News, INews } from './news';
-import { NewsDataService } from '../news-data.service';
+import { News, INews } from '../../interfaces/INews';
+import { NewsDataService } from '../../services/news-data.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -18,6 +18,8 @@ export class AddNewsComponent implements OnInit {
      ) { }
 
   newsForm : FormGroup;
+  
+    saveButton : string = "Save";
 
   news : News;
   submitted:Boolean=false;
@@ -39,6 +41,7 @@ export class AddNewsComponent implements OnInit {
 
 async  save() 
   {
+    this.saveButton = "Saving";
     this.submitted=true;
     // console.log("news=====",News)
     if (this.newsForm.invalid) {

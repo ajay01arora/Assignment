@@ -10,7 +10,7 @@
             </thead>
             <tbody>
                 <tr *ngFor="let state of StateList">
-                    <td><button (click)="viewStateDetails(state.stateCode)">{{state.stateName}}</button></td>
+                    <td><button (click)="viewStateDetails(state.stateCode)" class="stateName">{{state.stateName}}</button></td>
                     <td>{{ state.stateCode}}</td>
                 </tr>                             
             </tbody>

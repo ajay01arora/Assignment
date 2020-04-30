@@ -5,37 +5,7 @@
         </div>
         <div class="col-md-12">
           <ul>
-            <div class="jumbotron"><a (click)="ViewNews(1)">Forget Hindu-Muslim, donate plasma, save lives from coronavirus: Arvind Kejriwal</a></div>
-            <div class="jumbotron"><a (click)="ViewNews(1)">Forget Hindu-Muslim, donate plasma, save lives from coronavirus: Arvind Kejriwal</a></div>
-            <div class="jumbotron"><a (click)="ViewNews(1)">Forget Hindu-Muslim, donate plasma, save lives from coronavirus: Arvind Kejriwal</a></div>
-            <div class="jumbotron"><a (click)="ViewNews(1)">Forget Hindu-Muslim, donate plasma, save lives from coronavirus: Arvind Kejriwal</a></div>
+            <div class="jumbotron" *ngFor="let news of NewsList.slice().reverse()"><a (click)="ViewNews(news.id)">{{ news.newsTitle}}</a></div>
           </ul>
         </div>
   </div>
-  <div class="row">
-        <div class="col-md-6">
-        <table class="table table-bordered">
-            <thead>
-              <tr>
-                  <th>ID</th>
-                <th>News Title</th>
-                <th>Description</th>
-                <th>Full News</th>
-                <th>Image Link</th>
-              </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let news of News">
-                    <td>{{ news.id}}</td>
-                    <td>{{ news.newsTitle}}</td>
-                    <td>{{ news.description}}</td>
-                    <td>{{ news.full_news}}</td>
-                    <td>{{ news.image_link}}</td>
-                </tr>                             
-            </tbody>
-          </table>
-          </div>
-        </div>
-    </div>
-  <!-- </div> -->
-

@@ -30,7 +30,7 @@ export class AppComponent {
   
 public isLoggedIn()
 {      
-  if (localStorage.getItem('isLoggedIn') == "true") {      
+  if (sessionStorage.getItem('isLoggedIn') == "true") {      
      this.loggedIn = true;   
      this.loggedOut = false;      
   }    

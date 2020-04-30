@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 *ngIf="News">{{News.newsTitle}}</h2>
+            <h4 style="line-height:25px;" *ngIf="News">{{News.description}}</h4>
+        </div>
+        <div class="col-md-12">
+            <div class="image" *ngIf="News">
+                <img src= "{{News.image_link}}" />
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="content" *ngIf="News">
+                <p>{{News.full_news}} </p>
+
+</div>
+        </div>
+    </div>
+</div>

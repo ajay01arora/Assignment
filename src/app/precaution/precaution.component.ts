@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IPrecaution } from './precaution';
+import { IPrecaution } from '../interfaces/IPrecaution';
 
 @Component({
   selector: 'app-precaution',

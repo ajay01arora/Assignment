@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { State } from '../dashboard/state';
+import { IState } from '../../interfaces/IState';
 
 @Component({
   selector: 'app-district-list',
@@ -10,7 +10,7 @@ export class DistrictListComponent implements OnInit {
 
   constructor() { }
 
-  @Input()  state : State;
+  @Input()  state : IState = null;
 
   ngOnInit(): void {
   }

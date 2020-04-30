@@ -6,15 +6,16 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class CasesDataService {
   
-  private apiUrl  = "https://api.covid19india.org/state_district_wise.json";
+  apiUrl  = "https://api.covid19india.org/state_district_wise.json";
   
   constructor(private http : HttpClient) { }
   
-   getStateDetails() : Observable<Object>{
+   getStateDetails() : Observable<Object>
+   {
     console.log("inside the service");
-   return  this.http.get(this.apiUrl);
+    return  this.http.get(this.apiUrl);
    
-  }
+    }
 
 
 }

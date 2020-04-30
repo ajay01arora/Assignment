@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders, HttpErrorResponse} from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { INews } from './add-news/news';
+import { INews, News } from '../interfaces/INews';
 import {catchError} from 'rxjs/operators'
 
 const httpOptions =  {
@@ -9,69 +9,57 @@ const httpOptions =  {
     {
       'Content-Type' : 'application/json',
      "Origin":" https://www.npoint.io",
-      "Access-Control-Allow-Origin":"*"
-      // "secretKey":"$2b$10$xkMTelHWMW6vhHJWyHJhresCsNKaPyb1rrkXk0ALg.u605JLu9YwO"
-    
+      "Access-Control-Allow-Origin":"*"    
     })
 };
-
-
 
 @Injectable({
   providedIn: 'root'
 })
 export class NewsDataService {
 
-  // apiUrl : string = "api/News";
-  // baseApiGet:string="https://api.jsonbin.io/b/5ea55a0d1299b93742365823/4";
-  // baseApiPut:string="https://api.jsonbin.io/b/5ea55a0d1299b93742365823";
-  // baseApiPost:string="https://www.jsonstore.io/aafe2eb88aadf6310cfdb973cc7a4d3bb4378f149874701c073d76144c0b4681";
-  // secretKey:string="$2b$10$xkMTelHWMW6vhHJWyHJhresCsNKaPyb1rrkXk0ALg.u605JLu9YwO";
   jsonStorageBase:string="https://jsonstorage.net/api/items/22cab926-1f6a-46a5-9603-5dc37b5119ec"
 
-  // npointBaseUrl:string="https://www.npoint.io/documents/680bba8d293902089d18";
   constructor(private http : HttpClient) { }
 
   async getNews() {
     console.log("inside the service");
-    const data=await  this.http.get<any>(this.jsonStorageBase).toPromise();
+    const data=await  this.http.get<INews[]>(this.jsonStorageBase).toPromise();
     console.log("data=====",{data})
-    return data;
-   
+    return data;   
+  }
+
+  async getNewsById(newsId : number) : Promise<INews>
+  {
+    let news : INews;
+    const oldNews=await this.getNews();
+    news = (oldNews as INews[]).find(a => newsId == a.id);
+    return news;
   }
 
   async addNews(News : INews) 
   {
-
-
    const oldNews=await this.getNews();
-   
-   //.subscribe((data)=>{
-    
-       console.log("previous_news====",oldNews)
-     
-     let id=0;
-     
+   console.log("previous_news====",oldNews)     
+    let id=1;
      await  oldNews.push(News)
-
       oldNews.map(
         (news)=>{
           console.log("previous_news====",news)
           if(news)
         news.id=id++
       });
-  
-
+      
       console.log("previous_news====",oldNews)
       
-      const data=await this.http.put(this.jsonStorageBase ,oldNews,httpOptions).toPromise()
+      const data=await this.http.put(this.jsonStorageBase ,oldNews,httpOptions).toPromise().catch(
+        this.handleError
+      );
       console.log({data})
       return data;
-
-   // })
-    // return  this.http.get<INews[]>(this.baseApiGet);
    
   }
+
   private handleError(error : HttpErrorResponse)
   {
     if(error.error instanceof ErrorEvent)

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CasesDataService } from '../cases-data.service';
-import { District, State } from './state';
+import { CasesDataService } from '../services/cases-data.service';
+import { District, State } from '../interfaces/IState';
 
 
 @Component({
@@ -13,7 +13,7 @@ export class DashboardComponent implements OnInit {
 
   constructor(private cases_data : CasesDataService) { }
 
-  StateList : Array<State>=[];
+  StateList : State[]=[];
   
   selectState : State;
 
@@ -25,13 +25,13 @@ export class DashboardComponent implements OnInit {
 
 ngOnInit() {
   this.cases_data.getStateDetails().subscribe((data) =>{ 
-     console.log("data===",data)
-        
-    let districtList = new Array<District>();
+
+     console.log("data===",data);
+
       for(var state in data)
       {
-        districtList = new Array<District>();
-          for (var district in data[state].districtData)
+        let districtList = new Array<District>();
+          for (let district in data[state].districtData)
           {        
               districtList.push(
                 {
@@ -41,16 +41,9 @@ ngOnInit() {
                 recovered: data[state].districtData[district].recovered, 
                 deceased : data[state].districtData[district].deceased 
               });
-          }
-          //  console.log("check",state);
-          //  console.log(data[state].statecode);
-          // console.log(this.districtList);
-         // let data1=new State(state, data[state].statecode, this.districtList)
-          // console.log("data===",data1)
+          }          
           this.StateList.push({stateName:state,stateCode: data[state].statecode,districtList: districtList});
-            //{stateName:state,stateCode: data[state].statecode,districtList: this.districtList});
       }
-
       console.log("stateList====",this.StateList)
     });
   }
