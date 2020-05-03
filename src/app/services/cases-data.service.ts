@@ -12,7 +12,7 @@ export class CasesDataService {
   
    getStateDetails() : Observable<Object>
    {
-    console.log("inside the service");
+    console.log("inside the service cases test======");
     return  this.http.get(this.apiUrl);
    
     }

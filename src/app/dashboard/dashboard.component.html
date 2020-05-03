@@ -4,13 +4,13 @@
         <table class="table table-bordered">
             <thead>
               <tr>
-                <th>State Name</th>
+                <th class="name" id="500">State Name</th>
                 <th>State Code</th>
               </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let state of StateList">
-                    <td><button (click)="viewStateDetails(state.stateCode)" class="stateName">{{state.stateName}}</button></td>
+                <tr *ngFor="let state of StateList; index as i">
+                    <td ><button [id]="i" (click)="viewStateDetails(state.stateCode)" class="stateName">{{state.stateName}}</button></td>
                     <td>{{ state.stateCode}}</td>
                 </tr>                             
             </tbody>

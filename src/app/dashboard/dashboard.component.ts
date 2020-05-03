@@ -16,17 +16,20 @@ export class DashboardComponent implements OnInit {
   StateList : State[]=[];
   
   selectState : State;
+  test="name";
 
   viewStateDetails(stateCode : string)
   {
+    console.log("test button clicked====")
     this.selectState = this.StateList.find(s=> s.stateCode === stateCode)
+    console.log("test button clicked====",this.selectState)
   }
 
 
 ngOnInit() {
   this.cases_data.getStateDetails().subscribe((data) =>{ 
 
-     console.log("data===",data);
+     console.log("data===data[assam].statecode",data,[data["Assam"].statecode]);
 
       for(var state in data)
       {
